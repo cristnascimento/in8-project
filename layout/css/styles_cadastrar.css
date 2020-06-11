@@ -53,3 +53,15 @@ input[type=submit] {
   border: 0;
   color: #29abe2;
 }
+
+input[type=button] {
+  display: table;
+  margin: 0 auto;
+  margin-top: 35px;
+  width: 180px;
+  height: 60px;
+  font-size: 25px;
+  background: #012d51;
+  border: 0;
+  color: #29abe2;
+}

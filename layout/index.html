@@ -44,7 +44,7 @@
    <div class="cadastrar">
       <div class="aa">
 	 <div  class="titulo_cadastrar"><span>Cadastrar</span></div>
-            <form class="form_cadastrar" action="" method="post">
+            <form class="form_cadastrar" action="" method="post" onsubmit="enviar_dados()">
                <label>Name:</label>
                <input type="text" name="nome">
 
@@ -57,7 +57,8 @@
                <label>Telefone:</label>
                <input type="text" name="Cadastrar">
 
-               <input type="submit" value="Cadastrar">
+	       <!--<input type="submit" value="Submit" onclick="enviar_dados()">-->
+               <input type="button" value="Cadastrar" onclick="enviar_dados()">
             </form>
 	</div>
       </div>
@@ -76,7 +77,7 @@
 	    <tr>
 		<th></th><th>NOME</th><th>E-MAIL</th><th>NASCIMENTO</th><th>TELEFONE</th>
 	    </tr>
-
+<!--
             <tr>
                <td>1</td><td>Fulano Beltrano Oliveira da Silva</td><td>fulano@gmail.com</td><td>13/10/1995</td><td>(31) 9876 5432</td>
             </tr>
@@ -92,6 +93,7 @@
             <tr>
                <td>4</td><td></td><td></td><td></td><td></td>
             </tr>
+-->
          </table>
        </div>
 	
@@ -164,5 +166,6 @@
 <script src="./js/responsive.js"></script>
 <script src="./js/visualizar_mobile.js"></script>
 <script src="./js/preencher_automatico.js"></script>
+<script src="./js/action.js"></script>
 </body>
 </html>
