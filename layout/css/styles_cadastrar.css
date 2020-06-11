@@ -1,0 +1,55 @@
+.cadastrar { 
+  display: inline-block;
+  width: 100%;
+  height: 600px;
+  background: #29abe2 ;
+  margin: 0 auto;
+}
+
+.aa {
+  display: block;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+.titulo_cadastrar {
+  display: table;
+  font-size: 25px;
+  margin: 0 auto;
+}
+
+.form_cadastrar {
+  margin-top: 20px;
+}
+
+label {
+ color: white;
+ font-size: 10px;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 8px 16x;
+  margin: 4px 0;
+  box-sizing: border-box;
+  text-size: 12px;
+  background: #29abe2;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  color: white;
+}
+
+input[type=submit] {
+  display: table;
+  margin: 0 auto;
+  margin-top: 35px;
+  width: 180px;
+  height: 60px;
+  font-size: 25px;
+  background: #012d51;
+  border: 0;
+  color: #29abe2;
+}

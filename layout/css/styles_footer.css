@@ -1,0 +1,16 @@
+.bottom {
+  display: inline-block;
+  background: url("../imagens/rodape-desktop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 200px;
+}
+
+.bottom_informacoes {
+  background: pink;
+  width: 20%;
+  margin: 0 auto;
+  margin-top: 70px;
+  color: #29abe2;
+}
