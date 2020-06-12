@@ -1,0 +1,70 @@
+.master {
+ background: yellow;
+ width: 100%;
+ height: 100%;
+}
+
+.header {
+  display: inline-block;
+  background: url("../imagens/index-image.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 600px;
+}
+
+.navigation-bar {
+    width: 50%; 
+    height: 40px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: inline-block;
+    height: 30px;
+    width: 80px;
+}
+
+.drop_icon, .drop_icon_aberto {
+   height: 30px;
+   width: 40px;
+}
+
+.navigation-bar .icon {
+  display: none;
+}
+
+.navigation-bar > a {
+    display: inline-block;
+    float: right;
+    padding: 10px;
+    font-family: RobotoRegular;
+    color: white;
+    outline: none;
+}
+
+.navigation-bar > a:link,
+.navigation-bar > a:hover,
+.navigation-bar > a:visited {
+   text-decoration: none;
+}
+
+.titulo {
+   margin-top: 300px;
+   margin: 0 auto;
+   color: white;
+   width: 50%;
+   height: 100px;
+}
+
+.estagio {
+   display: flex;
+   margin-top: 150px;
+   font-size: 60px;
+   font-family: HelveticaUltra;
+}
+
+.selecao {
+  font-size: 26px;
+  font-family: HelveticaUltra;
+}

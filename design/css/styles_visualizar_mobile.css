@@ -1,0 +1,90 @@
+.tab_section {
+  display: none;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 25px;
+
+}
+.tab {
+  justify-content: space-between;
+  border: none;
+  background-color: #f1f1f1;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.tab .tablinks {
+  display: inline;
+  float: left;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 5px;
+  transition: 0.3s;
+  border-top: 2px solid #C0C0C0;
+  border-right: 2px solid #C0C0C0;
+  border-left: 2px solid #C0C0C0;
+  border-bottom: none;
+  color: #C0C0C0;
+  font-size: 18px;
+  width: 24%;
+}
+
+.divider {
+  display: inline;
+  width: 15px;
+  height: auto;
+  background: black ;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  border-top: 2px solid #29abe2;
+  border-right: 2px solid #29abe2;
+  border-left: 2px solid #29abe2;
+  border-bottom: none;
+  color: #29abe2;
+}
+
+.tabcontent {
+  display: none;
+  border: 2px solid #29abe2;
+  width: 100%;
+  margin: 0 auto;
+
+}
+
+.table_mobile {
+  width: 95%;
+  height: 80%;
+  vertical-align: top;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 30px ;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+.table_mobile tr{
+  height: 30px;
+}
+.table_mobile td{
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #29abe2;
+    color: #808080;
+
+  text-align: left;
+}
+
+.table_mobile td.label {
+   width:20%
+}
+
+.table_mobile td.content {
+   width:80%;
+}
