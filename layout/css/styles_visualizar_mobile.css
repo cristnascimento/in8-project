@@ -1,12 +1,11 @@
 .tab_section {
-  display: block;
+  display: none;
   width: 50%;
   margin: 0 auto;
   margin-bottom: 25px;
 
 }
 .tab {
-  display: none;
   justify-content: space-between;
   border: none;
   background-color: #f1f1f1;
@@ -17,15 +16,17 @@
 .tab .tablinks {
   display: inline;
   float: left;
-  background-color: inherit;
+  background-color: white;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 5px 5px;
   transition: 0.3s;
-  border-top: 2px solid #29abe2;
-  border-right: 2px solid #29abe2;
-  border-left: 2px solid #29abe2;
+  border-top: 2px solid #C0C0C0;
+  border-right: 2px solid #C0C0C0;
+  border-left: 2px solid #C0C0C0;
   border-bottom: none;
+  color: #C0C0C0;
+  font-size: 18px;
   width: 24%;
 }
 
@@ -41,7 +42,11 @@
 }
 
 .tab button.active {
-  background-color: #ccc;
+  border-top: 2px solid #29abe2;
+  border-right: 2px solid #29abe2;
+  border-left: 2px solid #29abe2;
+  border-bottom: none;
+  color: #29abe2;
 }
 
 .tabcontent {

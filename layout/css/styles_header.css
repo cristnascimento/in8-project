@@ -38,6 +38,15 @@
     display: inline-block;
     float: right;
     padding: 10px;
+    font-family: RobotoRegular;
+    color: white;
+    outline: none;
+}
+
+.navigation-bar > a:link,
+.navigation-bar > a:hover,
+.navigation-bar > a:visited {
+   text-decoration: none;
 }
 
 .titulo {

@@ -1,27 +1,30 @@
 .table {
-  display: inline-block;
+  display: flex;
   width: 100%;
+  background: white;
 }
 
 .table_internal {
   width: 50%;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 50px;
-  background: pink;
 }
 
 .titulo_lista {
   display: table;
-  font-size: 25px;
+  font-size: 35px;
   margin: 0 auto;
   color: #29abe2;
+  font-family: HelveticaUltra;
 }
 
 .table_desktop {
   margin: 0 auto;
   margin-top: 30px;
   width: 100%;
+  border:none;
+  border-collapse: collapse;
 }
 
 
@@ -29,6 +32,7 @@
   height: 50px;
   text-align: center;
   color: #012d51;
+  font-family: RobotoRegular;
 }
 
 .table_desktop tr {
@@ -36,6 +40,14 @@
   text-align: center;
   width: 100%;
 
+}
+
+.table_desktop td {
+    border-left: 1px solid #29abe2;
+    border-right: 1px solid #29abe2;
+    border-top: 1px solid #29abe2;
+    color: #808080;
+    font-family: HelveticaCondensed;
 }
 
 .table_desktop tr td {
@@ -52,18 +64,6 @@
   color: #012d51;
 }
 
-.table_desktop {
-    border:none;
-    border-collapse: collapse;
-}
-
-.table_desktop td {
-    border-left: 1px solid #29abe2;
-    border-right: 1px solid #29abe2;
-    border-top: 1px solid #29abe2;
-    color: #808080;
-}
-
 .table_desktop th {
     border-left: 1px solid #29abe2;
     border-right: 1px solid #29abe2;
@@ -71,6 +71,7 @@
 
 .table_desktop td:first-child {
     border-left: none;
+    color: #012d51;
 }
 
 .table_desktop th:first-child {
