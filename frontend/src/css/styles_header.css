@@ -32,6 +32,9 @@
 
 .navigation-bar .icon {
   display: none;
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
 }
 
 .navigation-bar > a {

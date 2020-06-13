@@ -54,7 +54,7 @@
     display: none;
   }
 
-  .navigation-bar a.icon {
+  .navigation-bar .icon.drop_icon {
     float: left;
     display: block;
   }

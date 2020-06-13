@@ -4,12 +4,12 @@ import "./css/styles_header.css"
 
 class Header extends Component {
 
-  myFunction () {
+  abrir_menu () {
      var x = document.getElementById("myTopnav");
-     if (x.classNameName === "navigation-bar") {
-       x.classNameName += " responsive";
+     if (x.className === "navigation-bar") {
+       x.className += " responsive";
      } else {
-       x.classNameName = "navigation-bar";
+       x.className = "navigation-bar";
      }
   }
 
@@ -17,10 +17,8 @@ class Header extends Component {
     return ( 
      <div className="header">
       <nav className="navigation-bar" id="myTopnav">
-         <a href="" className="icon" onClick={this.myFunction.bind(this)}>
-            <img className="drop_icon" src="./icones/hamburguer.svg" alt=""/>
-	    <img className="drop_icon_aberto" src="./icones/hamburguer-aberto0.svg" alt=""/>
-	 </a>
+         <img className="icon drop_icon" src="./icones/hamburguer.svg" alt="" onClick={this.abrir_menu.bind(this)}/>
+	 <img className="icon drop_icon_aberto" src="./icones/hamburguer-aberto0.svg" alt="" onClick={this.abrir_menu.bind(this)}/>
          <img className="logo" src="./imagens/logo-in8-dev.svg" alt=""/>
          <a href="#"></a>
          <a href="#"></a>
