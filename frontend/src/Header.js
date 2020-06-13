@@ -6,22 +6,22 @@ class Header extends Component {
 
   myFunction () {
      var x = document.getElementById("myTopnav");
-     if (x.className === "navigation-bar") {
-       x.className += " responsive";
+     if (x.classNameName === "navigation-bar") {
+       x.classNameName += " responsive";
      } else {
-       x.className = "navigation-bar";
+       x.classNameName = "navigation-bar";
      }
   }
 
   render() {
     return ( 
-     <div class="header">
-      <nav class="navigation-bar" id="myTopnav">
-         <a href="javascript:void(0);" class="icon" onClick={this.myFunction.bind(this)}>
-            <img class="drop_icon" src="./icones/hamburguer.svg"/>
-	    <img class="drop_icon_aberto" src="./icones/hamburguer-aberto0.svg"/>
+     <div className="header">
+      <nav className="navigation-bar" id="myTopnav">
+         <a href="" className="icon" onClick={this.myFunction.bind(this)}>
+            <img className="drop_icon" src="./icones/hamburguer.svg" alt=""/>
+	    <img className="drop_icon_aberto" src="./icones/hamburguer-aberto0.svg" alt=""/>
 	 </a>
-         <img class="logo" src="./imagens/logo-in8-dev.svg" />
+         <img className="logo" src="./imagens/logo-in8-dev.svg" alt=""/>
          <a href="#"></a>
          <a href="#"></a>
          <a href="#"></a>
@@ -30,9 +30,9 @@ class Header extends Component {
          <a href="#">cadastro</a>
       </nav>
 
-      <div class="titulo">
-         <span class="estagio">ESTÁGIO</span>
-         <span class="selecao">PROVA DE SELEÇÃO</span>
+      <div className="titulo">
+         <span className="estagio">ESTÁGIO</span>
+         <span className="selecao">PROVA DE SELEÇÃO</span>
       </div>
    </div>
     );

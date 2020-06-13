@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Visualizar, { preencher_html } from './Visualizar'
+import { preencher_html } from './Visualizar'
 
 import "./css/styles_cadastrar.css"
 
@@ -8,11 +8,11 @@ class Cadastrar extends Component {
    salvar_cadastro(cadastro) {
       var xhr = new XMLHttpRequest()
 
-      xhr.open('POST', 'http://127.0.0.1:8000/insert');
+      xhr.open('POST', 'http://192.168.15.9:8000/insert');
       xhr.setRequestHeader("Content-Type", "application/json");
 
       xhr.onreadystatechange = function () {
-	 if (xhr.readyState == 4 && (xhr.status == 200)) {
+	 if (xhr.readyState === 4 && (xhr.status === 200)) {
             var json = JSON.parse(xhr.responseText);
             console.log("status: " + json.status);
 	 }
@@ -39,13 +39,13 @@ class Cadastrar extends Component {
 
   render() {
     return ( 
-   <div class="cadastrar">
-      <div class="grupo_cadastrar">
-	 <div  class="titulo_cadastrar">
+   <div className="cadastrar">
+      <div className="grupo_cadastrar">
+	 <div  className="titulo_cadastrar">
             <span>CADASTRO</span>
          </div>
 
-         <form class="form_cadastrar" action="" method="post">
+         <form className="form_cadastrar" action="" method="post">
             <label>Name</label>
             <input type="text" name="nome" />
 
