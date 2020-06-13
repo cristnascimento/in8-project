@@ -44,6 +44,10 @@ export function preencher_html(cadastros) {
 }
 
 class Visualizar extends Component {
+   constructor() {
+      super();
+      this.preencher_automatico();
+   }
 
   openCity (evt, cityName) {
      var i, tabcontent, tablinks;
@@ -64,7 +68,7 @@ class Visualizar extends Component {
 
    preencher_automatico() {
     var xhr = new XMLHttpRequest()
-    xhr.open('GET', 'http://127.0.0.1:8000/list');
+    xhr.open('GET', 'http://192.168.15.9:8000/list');
     xhr.setRequestHeader("Content-Type", "application/json");
 	
     xhr.onreadystatechange = function () {
@@ -94,8 +98,6 @@ class Visualizar extends Component {
           </div>
 	
          <div class="tab_section"> <div class="tab"></div> </div>
-
-         {this.preencher_automatico()}
      </div>
     );
   }
