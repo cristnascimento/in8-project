@@ -5,51 +5,35 @@ import "./css/styles_visualizar_mobile.css"
 
 export function preencher_html(cadastros) {
 
-      var tab_mobile = document.getElementsByClassName("tab"); //.style.display = "table";
-      var tab_section = document.getElementsByClassName("tab_section");
-      var table_desktop = document.getElementsByClassName("table_desktop");
-      var rows = table_desktop[0].rows.length;
-      console.log("Preenchendo automatico.....");
-      for (var i = 0; i < cadastros.length; i++) {
-         var row_num = rows + i;
-         console.log("row-num: "+ row_num);
-         var new_tab = "<button class=\"tablinks\" onclick=\"openCity(event, 'tabcontent_"+row_num.toString()+"')\">"+row_num.toString()+"</button>";
-	
-         // insert new tab
-         tab_mobile[0].innerHTML += new_tab;
-      
-         var new_content = ""
-         new_content += "<div id='tabcontent_"+row_num.toString()+"' class='tabcontent'>";
-         new_content += "     <table class=\"table_mobile\">";
-         new_content += "            <tr><td class=\"label\">NOME</td><td class=\"content\">"+cadastros[i].nome+"</td></tr>";
-         new_content += "            <tr><td class=\"label\">EMAIL</td><td class=\"content\">"+cadastros[i].email+"</td></tr>";
-         new_content += "            <tr><td class=\"label\">NASC.</td><td class=\"content\">"+cadastros[i].nascimento+"</td></tr>";
-         new_content += "            <tr><td class=\"label\">TEL.</td><td class=\"content\">"+cadastros[i].telefone+"</td></tr>";
-         new_content += "     </table>";
-         new_content += "</div>";
-
-         // insert new tab
-         tab_section[0].innerHTML += new_content;
-
-         var new_row = "";
-         new_row += "<tr><td>"+row_num.toString()+"</td>";
-         new_row += "<td>"+cadastros[i].nome+"</td>";
-         new_row += "<td>"+cadastros[i].email+"</td>";
-         new_row += "<td>"+cadastros[i].nascimento+"</td>";
-         new_row += "<td>"+cadastros[i].telefone+"</td></tr>";
-
-         // insert new row 	   
-         table_desktop[0].innerHTML += new_row;
-      }
 }
 
 class Visualizar extends Component {
    constructor() {
       super();
+      this.state = { cadastros: [] };
       this.preencher_automatico();
    }
 
-  openCity (evt, cityName) {
+   change_state (novos_cadastros) {
+      var new_state = null;
+
+      for (var i = 0; i < novos_cadastros.length; i++) {
+         novos_cadastros[i].row_num = this.state.cadastros.length + i + 1;
+      }
+
+
+      if (this.state.cadastros.length === 0) {
+         new_state = novos_cadastros;
+      }
+      else {
+      
+         new_state = [this.state.cadastros, novos_cadastros];
+      }
+
+      this.setState({cadastros: new_state});
+   }
+
+  abrir_tab (evt, cityName) {
      var i, tabcontent, tablinks;
 
      tabcontent = document.getElementsByClassName("tabcontent");
@@ -70,34 +54,65 @@ class Visualizar extends Component {
     var xhr = new XMLHttpRequest()
     xhr.open('GET', 'http://192.168.15.9:8000/list');
     xhr.setRequestHeader("Content-Type", "application/json");
-	
+    var obj = this;	
     xhr.onreadystatechange = function () {
-	 if (xhr.readyState == 4 && (xhr.status == 200)) {
+	 if (xhr.readyState === 4 && (xhr.status === 200)) {
             var json = JSON.parse(xhr.responseText);
-	    preencher_html(json);
+	    obj.change_state(json);
 	 }
     };
 
     xhr.send()
    }
 
-
   render() {
     return ( 
-      <div class="table">
-         <div class="table_internal">
-           <div  class="titulo_lista">
+      <div className="table">
+         <div className="table_internal">
+           <div  className="titulo_lista">
              <span>LISTA DE CADASTRO</span>
            </div>
 
-           <table class="table_desktop">
+           <table className="table_desktop">
+	     <thead>
 	     <tr>
 	 	<th></th><th>NOME</th><th>E-MAIL</th><th>NASCIMENTO</th><th>TELEFONE</th>
 	     </tr>
+	    </thead>
+	     <tbody>
+	     {this.state.cadastros.map ( (item) => (
+                   <tr key={"row_"+item.row_num.toString()}>
+		     <td key={"col_"+item.row_num.toString()}>{item.row_num}</td>
+                     <td>{item.nome}</td>
+                     <td>{item.email}</td>
+                     <td>{item.nascimento}</td>
+                     <td>{item.telefone}</td>
+                   </tr>
+	     ))}
+	     </tbody>
            </table>
           </div>
 	
-         <div class="tab_section"> <div class="tab"></div> </div>
+         <div className="tab_section"> 
+	    <div className="tab">
+	     {this.state.cadastros.map ( (item) => (
+                  <button key={"btn_"+item.row_num.toString()} className="tablinks" onClick={ () => this.abrir_tab(event, "tabcontent_"+item.row_num.toString())}>{item.row_num}</button>
+	     ))}
+	    </div>
+
+	    {this.state.cadastros.map ( (item) => (
+            <div id={"tabcontent_"+item.row_num.toString()} key={"tabcontent_"+item.row_num.toString()} className='tabcontent'>
+              <table className="table_mobile">
+		    <tbody>
+                     <tr key={"mrow_nome_"+item.row_num.toString()}><td className="label">NOME</td><td className="content">{item.nome}</td></tr>
+                     <tr key={"mrow_email_"+item.row_num.toString()}><td className="label">EMAIL</td><td className="content">{item.email}</td></tr>
+                     <tr key={"mrow_nasc_"+item.row_num.toString()}><td className="label">NASC.</td><td className="content">{item.nascimento}</td></tr>
+                     <tr key={"mrow_tel_"+item.row_num.toString()}><td className="label">TEL.</td><td className="content">{item.telefone}</td></tr>
+		    </tbody>
+              </table>
+            </div>
+            ))}
+	 </div>
      </div>
     );
   }
