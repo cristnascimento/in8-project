@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { preencher_html } from './Visualizar'
 
 import "./css/styles_cadastrar.css"
 
@@ -8,17 +7,15 @@ class Cadastrar extends Component {
    salvar_cadastro(cadastro) {
       var xhr = new XMLHttpRequest()
 
-      xhr.open('POST', 'http://192.168.15.9:8000/insert');
+      xhr.open('POST', 'http://192.168.15.3:8000/insert');
       xhr.setRequestHeader("Content-Type", "application/json");
 
       xhr.onreadystatechange = function () {
 	 if (xhr.readyState === 4 && (xhr.status === 200)) {
-            var json = JSON.parse(xhr.responseText);
-            console.log("status: " + json.status);
+	    console.log("Cadastro salvo.");
 	 }
       };
 
-      console.log("Enviando...");
       var data = JSON.stringify(cadastro);
       xhr.send(data)
    }
@@ -32,8 +29,7 @@ class Cadastrar extends Component {
          cadastro[e.name] = e.value;
       }
 
-      var data = [cadastro];
-      preencher_html(data);
+      this.props.updateParent([cadastro]);
       this.salvar_cadastro(cadastro);
    }
 

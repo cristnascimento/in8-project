@@ -8,61 +8,43 @@ export function preencher_html(cadastros) {
 }
 
 class Visualizar extends Component {
+
    constructor() {
       super();
       this.state = { cadastros: [] };
       this.preencher_automatico();
    }
 
-   change_state (novos_cadastros) {
-      var new_state = null;
+   abrir_tab (evt, cityName) {
+      var i, tabcontent, tablinks;
 
-      for (var i = 0; i < novos_cadastros.length; i++) {
-         novos_cadastros[i].row_num = this.state.cadastros.length + i + 1;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
       }
 
-
-      if (this.state.cadastros.length === 0) {
-         new_state = novos_cadastros;
-      }
-      else {
-      
-         new_state = [this.state.cadastros, novos_cadastros];
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
       }
 
-      this.setState({cadastros: new_state});
+      document.getElementById(cityName).style.display = "table";
+      evt.currentTarget.className += " active";
    }
 
-  abrir_tab (evt, cityName) {
-     var i, tabcontent, tablinks;
-
-     tabcontent = document.getElementsByClassName("tabcontent");
-     for (i = 0; i < tabcontent.length; i++) {
-       tabcontent[i].style.display = "none";
-     }
-
-     tablinks = document.getElementsByClassName("tablinks");
-     for (i = 0; i < tablinks.length; i++) {
-       tablinks[i].className = tablinks[i].className.replace(" active", "");
-     }
-
-     document.getElementById(cityName).style.display = "table";
-     evt.currentTarget.className += " active";
-  }
-
    preencher_automatico() {
-    var xhr = new XMLHttpRequest()
-    xhr.open('GET', 'http://192.168.15.9:8000/list');
-    xhr.setRequestHeader("Content-Type", "application/json");
-    var obj = this;	
-    xhr.onreadystatechange = function () {
+      var xhr = new XMLHttpRequest()
+      xhr.open('GET', 'http://192.168.15.3:8000/list');
+      xhr.setRequestHeader("Content-Type", "application/json");
+      var obj = this;	
+
+      xhr.onreadystatechange = function () {
 	 if (xhr.readyState === 4 && (xhr.status === 200)) {
             var json = JSON.parse(xhr.responseText);
-	    obj.change_state(json);
+	    obj.props.change_state(json);
 	 }
-    };
-
-    xhr.send()
+      };
+      xhr.send()
    }
 
   render() {
@@ -80,7 +62,7 @@ class Visualizar extends Component {
 	     </tr>
 	    </thead>
 	     <tbody>
-	     {this.state.cadastros.map ( (item) => (
+	     {this.props.cadastros.map ( (item) => (
                    <tr key={"row_"+item.row_num.toString()}>
 		     <td key={"col_"+item.row_num.toString()}>{item.row_num}</td>
                      <td>{item.nome}</td>
@@ -95,12 +77,12 @@ class Visualizar extends Component {
 	
          <div className="tab_section"> 
 	    <div className="tab">
-	     {this.state.cadastros.map ( (item) => (
+	     {this.props.cadastros.map ( (item) => (
                   <button key={"btn_"+item.row_num.toString()} className="tablinks" onClick={ () => this.abrir_tab(event, "tabcontent_"+item.row_num.toString())}>{item.row_num}</button>
 	     ))}
 	    </div>
 
-	    {this.state.cadastros.map ( (item) => (
+	    {this.props.cadastros.map ( (item) => (
             <div id={"tabcontent_"+item.row_num.toString()} key={"tabcontent_"+item.row_num.toString()} className='tabcontent'>
               <table className="table_mobile">
 		    <tbody>
