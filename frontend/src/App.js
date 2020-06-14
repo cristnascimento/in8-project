@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-import Header from "./Header";
+import Cabecalho from "./Cabecalho";
 import Cadastrar from "./Cadastrar";
 import Visualizar from "./Visualizar";
-import Footer from "./Footer";
+import Rodape from "./Rodape";
 
 import { Container } from "./styles"
 
@@ -39,11 +39,11 @@ class App extends Component {
    render() {
      return (
 	<Container>
-	   <Header />
+	   <Cabecalho />
 	   <Cadastrar updateParent={ this.change_state.bind(this) } />
 	   <Visualizar change_state={ this.change_state.bind(this) }
 	               cadastros={this.state.cadastros}/>
-	   <Footer />
+	   <Rodape />
 	</Container>
      );
    }

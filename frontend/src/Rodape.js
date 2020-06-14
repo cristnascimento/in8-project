@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import "./css/styles_footer.css"
+import "./css/styles_rodape.css"
 
-class Footer extends Component {
+class Rodape extends Component {
   render() {
     return ( 
    <div className="bottom">
@@ -17,4 +17,4 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+export default Rodape;

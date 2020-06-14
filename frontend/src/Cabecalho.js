@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import "./css/styles_header.css"
+import "./css/styles_cabecalho.css"
 
-class Header extends Component {
+class Cabecalho extends Component {
 
   abrir_menu () {
      var x = document.getElementById("menu_01");
@@ -37,4 +37,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default Cabecalho;
