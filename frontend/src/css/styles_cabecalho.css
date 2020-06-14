@@ -21,7 +21,7 @@
 }
 
 .cabecalho_menu {
-  display: inline-block;
+  display: flex;
   width: 50%;
   order: 1;
 }
@@ -54,18 +54,28 @@
   width: 40px;
 }
 
-.cabecalho_menu > a {
-  display: inline-block;
+
+.cabecalho_menu a {
+  display: flex;
   float: left;
-  padding: 10px;
   font-family: RobotoRegular;
   color: white;
   outline: none;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-.cabecalho_menu > a:link,
-.cabecalho_menu > a:hover,
-.cabecalho_menu > a:visited {
+.cabecalho_menu a:not(:last-child):after {
+  content: "\2022";
+  margin-right: 10px;
+  margin-left: 10px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.cabecalho_menu a:link,
+.cabecalho_menu a:hover,
+.cabecalho_menu a:visited {
   text-decoration: none;
 }
 
@@ -131,19 +141,22 @@
     left: 0;
     top: 0;
   }
-  .cabecalho_menu.responsive a:first-child {
-   margin-top: 30px;
-  }
 
   .cabecalho_menu.responsive a {
     float: none;
     display: block;
     text-align: left;
     background: #29abe2;
-    color: white;
     width: 70%;
     padding: 15px;
     margin-left: 15px;
+  }
+
+  .cabecalho_menu.responsive a:not(:last-child):after {
+     content: '';
+  }
+  .cabecalho_menu.responsive a:first-of-type {
+     margin-top: 80px;
   }
 
   .cabecalho_menu.responsive .drop_icon_fechado {
@@ -157,6 +170,12 @@
 
   .cabecalho_titulo {
     width: 60%;
+  }
+
+  .cabecalho_menu.responsive {
+    display: inline-block;
+    background: #29abe2;
+    height: 300px;
   }
 
 }

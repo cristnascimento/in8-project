@@ -24,12 +24,9 @@ class Cabecalho extends Component {
       <nav className="cabecalho_menu" id="menu_01">
          <img className="cabecalho_icon drop_icon_fechado" src="./icones/hamburguer.svg" alt="" onClick={this.abrir_menu.bind(this)}/>
 	 <img className="cabecalho_icon drop_icon_aberto" src="./icones/hamburguer-aberto0.svg" alt="" onClick={this.abrir_menu.bind(this)}/>
-         <a href="#"></a>
-         <a href="#"></a>
-         <a href="#"></a>
          <NavLink to="/cadastro">cadastro</NavLink>
          <NavLink to="/lista">lista</NavLink>
-         <NavLink to="/sobre">sobre mim</NavLink>
+	 <NavLink to="/sobre">sobre mim</NavLink>
       </nav>
       </div>
 
