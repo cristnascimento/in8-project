@@ -10,25 +10,42 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 600px;
+  height: 720px;
+}
+
+.cabecalho_bar {
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10px;
 }
 
 .cabecalho_menu {
-  width: 50%; 
-  height: 40px;
-  margin: 0 auto;
+  display: inline-block;
+  width: 50%;
+  order: 1;
 }
 
 .cabecalho_logo {
-  display: inline-block;
+  display: flex;
+  width: 50%;
+  order: 0;
+}
+
+.cabecalho_logo_img {
+  margin-top: auto;
+  margin-bottom: auto;
+  vertical-align: auto;
+  width: 50%;
   height: 30px;
-  width: 80px;
 }
 
 .cabecalho_menu .cabecalho_icon {
   display: none;
-  padding: 10px;
   outline: none;
+  margin-left: 30px;
+  margin-top: 5px;
+  margin-bottom: 100px;
   cursor: pointer;
 }
 
@@ -39,7 +56,7 @@
 
 .cabecalho_menu > a {
   display: inline-block;
-  float: right;
+  float: left;
   padding: 10px;
   font-family: RobotoRegular;
   color: white;
@@ -84,20 +101,38 @@
 
   .cabecalho_menu .drop_icon_aberto {
     display: none;
+    margin-bottom: 30px;
   }
 
-  .cabecalho_menu .cabecalho_logo {
-    float: right;
-    display: inline-block;
+  .cabecalho_bar {
+     width: 100%;
+  }
+
+  .cabecalho_logo {
+    order: 1;
+    height: 30px;
+  }
+
+  .cabecalho_logo_img {
+    float: left;
+  }
+
+  .cabecalho_menu {
+    order: 0;
+    width: 70%;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .cabecalho_menu.responsive {position: relative;}
+
   .cabecalho_menu.responsive .cabecalho_icon {
     position: absolute;
     left: 0;
     top: 0;
+  }
+  .cabecalho_menu.responsive a:first-child {
+   margin-top: 30px;
   }
 
   .cabecalho_menu.responsive a {
@@ -106,7 +141,9 @@
     text-align: left;
     background: #29abe2;
     color: white;
-    width: 60%;
+    width: 70%;
+    padding: 15px;
+    margin-left: 15px;
   }
 
   .cabecalho_menu.responsive .drop_icon_fechado {
@@ -121,6 +158,7 @@
   .cabecalho_titulo {
     width: 60%;
   }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -131,4 +169,30 @@
       width: 100%;
       height: 800px;
    }
+
+  .cabecalho_bar {
+     width: 100%;
+  }
+
+  .cabecalho_logo {
+    order: 1;
+    height: 30px;
+  }
+
+  .cabecalho_logo_img {
+    float: left;
+  }
+
+  .cabecalho_menu {
+    order: 0;
+    width: 70%;
+    z-index: 11;
+  }
+
+  .cabecalho_titulo {
+    position: absolute;
+    left: 100px;
+    top: 0;
+    z-index: 10;
+  }
 }

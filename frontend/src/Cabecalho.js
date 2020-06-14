@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 import "./css/styles_cabecalho.css"
 
@@ -16,17 +17,21 @@ class Cabecalho extends Component {
   render() {
     return ( 
      <div className="cabecalho_secao">
+      <div className="cabecalho_bar">
+	 <div className="cabecalho_logo">
+              <img className="cabecalho_logo_img" src="./imagens/logo-in8-dev.svg" alt=""/>
+	 </div>
       <nav className="cabecalho_menu" id="menu_01">
          <img className="cabecalho_icon drop_icon_fechado" src="./icones/hamburguer.svg" alt="" onClick={this.abrir_menu.bind(this)}/>
 	 <img className="cabecalho_icon drop_icon_aberto" src="./icones/hamburguer-aberto0.svg" alt="" onClick={this.abrir_menu.bind(this)}/>
-         <img className="cabecalho_logo" src="./imagens/logo-in8-dev.svg" alt=""/>
          <a href="#"></a>
          <a href="#"></a>
          <a href="#"></a>
-         <a href="#">sobre mim</a>
-         <a href="#">lista</a>
-         <a href="#">cadastro</a>
+         <NavLink to="/cadastro">cadastro</NavLink>
+         <NavLink to="/lista">lista</NavLink>
+         <NavLink to="/sobre">sobre mim</NavLink>
       </nav>
+      </div>
 
       <div className="cabecalho_titulo">
          <span className="cabecalho_estagio">ESTÁGIO</span>

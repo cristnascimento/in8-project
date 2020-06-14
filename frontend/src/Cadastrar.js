@@ -29,7 +29,6 @@ class Cadastrar extends Component {
          cadastro[e.name] = e.value;
       }
 
-      this.props.updateParent([cadastro]);
       this.salvar_cadastro(cadastro);
    }
 

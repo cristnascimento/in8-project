@@ -42,10 +42,28 @@ class Visualizar extends Component {
       xhr.onreadystatechange = function () {
 	 if (xhr.readyState === 4 && (xhr.status === 200)) {
             var json = JSON.parse(xhr.responseText);
-	    obj.props.change_state(json);
+	    obj.change_state(json);
 	 }
       };
       xhr.send()
+   }
+
+   change_state (novos_cadastros) {
+      var new_state = null;
+
+      for (var i = 0; i < novos_cadastros.length; i++) {
+         novos_cadastros[i].row_num = this.state.cadastros.length + i + 1;
+      }
+
+
+      if (this.state.cadastros.length === 0) {
+         new_state = novos_cadastros;
+      }
+      else {
+         new_state = this.state.cadastros.concat(novos_cadastros);
+      }
+
+      this.setState({cadastros: new_state});
    }
 
   render() {
@@ -63,7 +81,7 @@ class Visualizar extends Component {
 	     </tr>
 	    </thead>
 	     <tbody>
-	     {this.props.cadastros.map ( (item) => (
+	     {this.state.cadastros.map ( (item) => (
                    <tr key={"row_"+item.row_num.toString()}>
 		     <td key={"col_"+item.row_num.toString()}>{item.row_num}</td>
                      <td>{item.nome}</td>
@@ -78,7 +96,7 @@ class Visualizar extends Component {
 	
          <div className="visualizar_mobile"> 
 	    <div className="visualizar_aba">
-	     {this.props.cadastros.map ( (item) => (
+	     {this.state.cadastros.map ( (item) => (
                   <button className="btn_aba" key={"btn_"+item.row_num.toString()}
 		          onClick={ event => this.abrir_tab(event, "conteudo_"+item.row_num.toString())}>
 		          {item.row_num}
@@ -87,7 +105,7 @@ class Visualizar extends Component {
 	    </div>
 
 	    <div className="visualizar_conteudo">
-	    {this.props.cadastros.map ( (item) => (
+	    {this.state.cadastros.map ( (item) => (
             <div className='conteudo' id={"conteudo_"+item.row_num.toString()} key={"conteudo_"+item.row_num.toString()}>
               <table className="tabela_mobile">
 		    <tbody>
