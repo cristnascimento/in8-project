@@ -3,11 +3,15 @@ import React, { Component } from "react";
 import "./css/styles_visualizar_desktop.css"
 import "./css/styles_visualizar_mobile.css"
 
+import TopBtn from "./TopBtn"
+
 export function preencher_html(cadastros) {
 
 }
 
+
 class Visualizar extends Component {
+
 
    constructor() {
       super();
@@ -92,6 +96,7 @@ class Visualizar extends Component {
 	     ))}
 	     </tbody>
            </table>
+	   <TopBtn/>
           </div>
 	
          <div className="visualizar_mobile"> 

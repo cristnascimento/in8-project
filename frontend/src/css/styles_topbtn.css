@@ -1,0 +1,26 @@
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 80px; /* Place the button at the bottom of the page */
+  right: 120px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  background-image: url("/icones/topo-pag.svg");
+  background-size: cover;
+  background-color: Transparent;
+  width: 30px;
+  height: 30px;
+}
+
+#myBtn::-moz-focus-inner {
+   border: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  #myBtn {
+    display:none;
+  }
+}
