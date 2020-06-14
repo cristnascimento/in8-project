@@ -1,21 +1,22 @@
-.tab_section {
+.visualizar_mobile {
   display: none;
   width: 50%;
   margin: 0 auto;
   margin-bottom: 25px;
 
 }
-.tab {
+.visualizar_aba {
+  width: 100%;
   justify-content: space-between;
   border: none;
   background-color: #f1f1f1;
-  width: 100%;
   margin-top: 20px;
 }
 
-.tab .tablinks {
+.visualizar_aba .btn_aba {
   display: inline;
   float: left;
+  width: 24%;
   background-color: white;
   outline: none;
   cursor: pointer;
@@ -27,37 +28,39 @@
   border-bottom: none;
   color: #C0C0C0;
   font-size: 18px;
-  width: 24%;
 }
 
-.divider {
-  display: inline;
-  width: 15px;
-  height: auto;
-  background: black ;
-}
-
-.tab button:hover {
+.visualizar_aba button:hover {
   background-color: #ddd;
 }
 
-.tab button.active {
+.visualizar_aba button.active {
   border-top: 2px solid #29abe2;
   border-right: 2px solid #29abe2;
   border-left: 2px solid #29abe2;
   border-bottom: none;
   color: #29abe2;
+  outline: none;
+  background: white;
 }
 
-.tabcontent {
+.visualizar_aba button.active::-moz-focus-inner {
+   border: 0;
+}
+
+.visualizar_conteudo {
   display: none;
-  border: 2px solid #29abe2;
+}
+
+.conteudo {
+  display: none;
   width: 100%;
+  border: 2px solid #29abe2;
   margin: 0 auto;
 
 }
 
-.table_mobile {
+.tabela_mobile {
   width: 95%;
   height: 80%;
   vertical-align: top;
@@ -69,22 +72,41 @@
   border-collapse: collapse;
 }
 
-.table_mobile tr{
+.tabela_mobile tr{
   height: 30px;
 }
-.table_mobile td{
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid #29abe2;
-    color: #808080;
 
+.tabela_mobile td{
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #29abe2;
+  color: #808080;
   text-align: left;
 }
 
-.table_mobile td.label {
-   width:20%
+.tabela_mobile td.rotulo {
+  width:20%
 }
 
-.table_mobile td.content {
-   width:80%;
+.tabela_mobile td.info {
+  width:80%;
+}
+
+@media screen and (max-width: 600px) {
+  .visualizar_mobile {
+    display: block;
+    width: 80%;
+  }
+
+  .visualizar_aba {
+    display: flex;
+  }
+
+  .visualizar_conteudo {
+    display: block;
+  }
+
+  .conteudo:first-child {
+    display: block;
+  }
 }

@@ -15,21 +15,22 @@ class Visualizar extends Component {
       this.preencher_automatico();
    }
 
-   abrir_tab (evt, cityName) {
-      var i, tabcontent, tablinks;
+   abrir_tab (evt, aba_num) {
+      var i, conteudo, aba;
 
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+      conteudo = document.getElementsByClassName("conteudo");
+      for (i = 0; i < conteudo.length; i++) {
+        conteudo[i].style.display = "none";
       }
 
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      aba = document.getElementsByClassName("btn_aba");
+      for (i = 0; i < aba.length; i++) {
+        aba[i].className = aba[i].className.replace(" active", "");
       }
 
-      document.getElementById(cityName).style.display = "table";
+      document.getElementById(aba_num).style.display = "table";
       evt.currentTarget.className += " active";
+      console.log("class= "+evt.currentTarget.className);
    }
 
    preencher_automatico() {
@@ -49,13 +50,13 @@ class Visualizar extends Component {
 
   render() {
     return ( 
-      <div className="table">
-         <div className="table_internal">
-           <div  className="titulo_lista">
+      <div className="secao_visualizar">
+         <div className="visualizar_desktop">
+           <div  className="visualizar_titulo">
              <span>LISTA DE CADASTRO</span>
            </div>
 
-           <table className="table_desktop">
+           <table className="tabela_desktop">
 	     <thead>
 	     <tr>
 	 	<th></th><th>NOME</th><th>E-MAIL</th><th>NASCIMENTO</th><th>TELEFONE</th>
@@ -75,25 +76,30 @@ class Visualizar extends Component {
            </table>
           </div>
 	
-         <div className="tab_section"> 
-	    <div className="tab">
+         <div className="visualizar_mobile"> 
+	    <div className="visualizar_aba">
 	     {this.props.cadastros.map ( (item) => (
-                  <button key={"btn_"+item.row_num.toString()} className="tablinks" onClick={ () => this.abrir_tab(event, "tabcontent_"+item.row_num.toString())}>{item.row_num}</button>
+                  <button className="btn_aba" key={"btn_"+item.row_num.toString()}
+		          onClick={ event => this.abrir_tab(event, "conteudo_"+item.row_num.toString())}>
+		          {item.row_num}
+		  </button>
 	     ))}
 	    </div>
 
+	    <div className="visualizar_conteudo">
 	    {this.props.cadastros.map ( (item) => (
-            <div id={"tabcontent_"+item.row_num.toString()} key={"tabcontent_"+item.row_num.toString()} className='tabcontent'>
-              <table className="table_mobile">
+            <div className='conteudo' id={"conteudo_"+item.row_num.toString()} key={"conteudo_"+item.row_num.toString()}>
+              <table className="tabela_mobile">
 		    <tbody>
-                     <tr key={"mrow_nome_"+item.row_num.toString()}><td className="label">NOME</td><td className="content">{item.nome}</td></tr>
-                     <tr key={"mrow_email_"+item.row_num.toString()}><td className="label">EMAIL</td><td className="content">{item.email}</td></tr>
-                     <tr key={"mrow_nasc_"+item.row_num.toString()}><td className="label">NASC.</td><td className="content">{item.nascimento}</td></tr>
-                     <tr key={"mrow_tel_"+item.row_num.toString()}><td className="label">TEL.</td><td className="content">{item.telefone}</td></tr>
+                     <tr key={"mrow_nome_"+item.row_num.toString()}><td className="rotulo">NOME</td><td className="info">{item.nome}</td></tr>
+                     <tr key={"mrow_email_"+item.row_num.toString()}><td className="rotulo">EMAIL</td><td className="info">{item.email}</td></tr>
+                     <tr key={"mrow_nasc_"+item.row_num.toString()}><td className="rotulo">NASC.</td><td className="info">{item.nascimento}</td></tr>
+                     <tr key={"mrow_tel_"+item.row_num.toString()}><td className="rotulo">TEL.</td><td className="info">{item.telefone}</td></tr>
 		    </tbody>
               </table>
             </div>
             ))}
+	    </div>
 	 </div>
      </div>
     );

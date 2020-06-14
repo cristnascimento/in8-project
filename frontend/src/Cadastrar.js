@@ -21,7 +21,7 @@ class Cadastrar extends Component {
    }
 
    enviar_dados() {
-      var form_cadastrar = document.getElementsByClassName("form_cadastrar");
+      var form_cadastrar = document.getElementsByClassName("cadastrar_form");
    
       var cadastro = {};
       for ( var i = 0; i < form_cadastrar[0].elements.length; i++ ) {
@@ -35,13 +35,13 @@ class Cadastrar extends Component {
 
   render() {
     return ( 
-   <div className="cadastrar">
-      <div className="grupo_cadastrar">
-	 <div  className="titulo_cadastrar">
+   <div className="secao_cadastrar">
+      <div className="cadastrar_grupo">
+	 <div  className="cadastrar_titulo">
             <span>CADASTRO</span>
          </div>
 
-         <form className="form_cadastrar" action="" method="post">
+         <form className="cadastrar_form" action="" method="post">
             <label>Name</label>
             <input type="text" name="nome" />
 

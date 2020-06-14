@@ -1,4 +1,4 @@
-.cadastrar { 
+.secao_cadastrar { 
   display: inline-block;
   width: 100%;
   height: 550px;
@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-.grupo_cadastrar {
+.cadastrar_grupo {
   display: block;
   width: 40%;
   margin: 0 auto;
@@ -14,7 +14,7 @@
   margin-bottom: 50px;
 }
 
-.titulo_cadastrar {
+.cadastrar_titulo {
   display: table;
   font-size: 35px;
   margin: 0 auto;
@@ -22,7 +22,7 @@
   color: white;
 }
 
-.form_cadastrar {
+.cadastrar_form {
   margin-top: 20px;
 }
 
@@ -74,4 +74,28 @@ input[type=button] {
   border: 0;
   color: #29abe2;
   font-family: HelveticaUltra;
+}
+
+@media screen and (max-width: 1200px) {
+  .cadastrar_grupo {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cadastrar_grupo {
+    width: 80%;
+  }
+
+  input[type=button] {
+    width: 100%;
+    outline: none;
+  }
+
+  input[type=text] {
+    height: 35px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    outline: none;
+  }
 }

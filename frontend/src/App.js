@@ -8,7 +8,6 @@ import Footer from "./Footer";
 import { Container } from "./styles"
 
 import "./css/styles_fonts.css"
-import "./css/styles_responsive.css"
 
 class App extends Component {
 

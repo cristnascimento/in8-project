@@ -27,3 +27,15 @@
    font-size: 18px;
    color: white;
 }
+
+@media screen and (max-width: 600px) {
+  .bottom {
+    background: url("/imagens/rodape-mobile.jpg");
+    height: 300px;
+    background-size: contain;
+  }
+
+  .bottom_informacoes {
+    width: 80%;
+  }
+}

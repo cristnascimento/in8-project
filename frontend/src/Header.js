@@ -5,21 +5,21 @@ import "./css/styles_header.css"
 class Header extends Component {
 
   abrir_menu () {
-     var x = document.getElementById("myTopnav");
-     if (x.className === "navigation-bar") {
+     var x = document.getElementById("menu_01");
+     if (x.className === "cabecalho_menu") {
        x.className += " responsive";
      } else {
-       x.className = "navigation-bar";
+       x.className = "cabecalho_menu";
      }
   }
 
   render() {
     return ( 
-     <div className="header">
-      <nav className="navigation-bar" id="myTopnav">
-         <img className="icon drop_icon" src="./icones/hamburguer.svg" alt="" onClick={this.abrir_menu.bind(this)}/>
-	 <img className="icon drop_icon_aberto" src="./icones/hamburguer-aberto0.svg" alt="" onClick={this.abrir_menu.bind(this)}/>
-         <img className="logo" src="./imagens/logo-in8-dev.svg" alt=""/>
+     <div className="cabecalho_secao">
+      <nav className="cabecalho_menu" id="menu_01">
+         <img className="cabecalho_icon drop_icon_fechado" src="./icones/hamburguer.svg" alt="" onClick={this.abrir_menu.bind(this)}/>
+	 <img className="cabecalho_icon drop_icon_aberto" src="./icones/hamburguer-aberto0.svg" alt="" onClick={this.abrir_menu.bind(this)}/>
+         <img className="cabecalho_logo" src="./imagens/logo-in8-dev.svg" alt=""/>
          <a href="#"></a>
          <a href="#"></a>
          <a href="#"></a>
@@ -28,9 +28,9 @@ class Header extends Component {
          <a href="#">cadastro</a>
       </nav>
 
-      <div className="titulo">
-         <span className="estagio">ESTÁGIO</span>
-         <span className="selecao">PROVA DE SELEÇÃO</span>
+      <div className="cabecalho_titulo">
+         <span className="cabecalho_estagio">ESTÁGIO</span>
+         <span className="cabecalho_selecao">PROVA DE SELEÇÃO</span>
       </div>
    </div>
     );
